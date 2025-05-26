@@ -7,11 +7,11 @@ Notre nom fait référence à notre projet libre. Notre système simule le compo
 ## Sommaire 
 
 1. [Description](#description)
-2. [Prerequisite](#prerequisite)
+2. [Prérequis](#prerequis)
 3. [Installation](#installation)
 4. [Usage](#usage)
-5. [Authors and Acknowledgements](#authors-and-acknowledgements)
-6. [License](#license)
+5. [Auteurs et Remerciements](#auteurs-et-remerciements)
+6. [Licence](#licence)
 
 
 ## Description
@@ -27,7 +27,7 @@ Le projet est divisé en deux parties :
 * **Figure libre** : Un Robot Police qui recherche un criminel à partir de deux critères définis dans l’interface : la couleur de son tee-shirt et s'il porte un masque. L’utilisateur sélectionne les paramètres qu'il souhaite, qui sont alors enregistrés dans un fichier, puis le programme lance un système de reconnaissance en se basant sur ces paramètres.
 
 
-## Prerequisite
+## Prérequis
 
 ### Matériel :
 
@@ -35,7 +35,7 @@ Le projet est divisé en deux parties :
 * Webcam montée
 * 2 servomoteurs 
 
-### Logiciels à installer
+### Logiciels à installer :
 
 Avant de compiler ou d'exécuter le programme, installez : 
 
@@ -76,6 +76,7 @@ Note : Dans notre projet, le port série utilisé par défaut dans le code (car 
 Dans le cas d'une exécution sur Linux ou Windows, le nom du port série sera différent. Il est donc nécessaire de vérifier le port série auquel l'Arduino est connecté et d'adapter ce chemin dans le code source avant d’exécuter le programme, sinon la communication avec l’Arduino ne pourra pas s’établir correctement.
 
 Il convient également de préciser que lors de l'exécution du code Arduino, il est nécessaire de fermer l'IDE Arduino sinon, le programme ne fonctionnera pas.
+
 ## Installation
 
 Pour compiler les différents programmes, on s'assurera d'abord d'être dans le dossier où se trouvent les fichiers sources. On pourra alors taper dans le terminal les commandes suivantes : 
@@ -124,12 +125,12 @@ On pourra alors :
 
 
 
-## Authors and Acknowledgements
+## Auteurs et Remerciements
 
 - Mardikian Gaëlle - Projet imposé / Projet libre
 - Saandi Diyana - Interface graphique / Projet libre
 
 Ce projet a été réalisé sous la supervision de Ludovic Saint-Bauzel et Ousmane Ndiaye - ROB3 -  Polytech Sorbonne.
-## License
+## Licence
 
 Ce projet a été réalisé dans le cadre du module Projet en langage C en ROB3 à Polytech Sorbonne.
