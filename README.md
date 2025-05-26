@@ -1,7 +1,7 @@
 # gr2_03
 
 
-# Robot Police - Projet C++
+# Robot Police - Living Machine : Projet C++
 Notre nom fait référence à notre projet libre. Notre système simule le comportement d'un policier en tentant de détecter et suivre un "suspect" à partir de critères prédéfinis.
 
 ## Sommaire 
