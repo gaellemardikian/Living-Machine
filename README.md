@@ -127,10 +127,11 @@ On pourra alors :
 
 ## Auteurs et Remerciements
 
-- Mardikian Gaëlle - Projet imposé / Projet libre
-- Saandi Diyana - Interface graphique / Projet libre
+- Mardikian Gaëlle - 
+- Saandi Diyana - 
 
 Ce projet a été réalisé sous la supervision de Ludovic Saint-Bauzel et Ousmane Ndiaye - ROB3 -  Polytech Sorbonne.
+
 ## Licence
 
 Ce projet a été réalisé dans le cadre du module Projet en langage C en ROB3 à Polytech Sorbonne.
