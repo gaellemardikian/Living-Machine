@@ -1,93 +1,135 @@
 # gr2_03
 
 
+# Robot Police - Projet C++
+Notre nom fait référence à notre projet libre. Notre système simule le comportement d'un policier en tentant de détecter et suivre un "suspect" à partir de critères prédéfinis.
 
-## Getting started
+## Sommaire 
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+1. [Description](#Description)
+2. [Prerequisite](#Prerequisite)
+3. [Installation](#Installation)
+4. [Usage](#Usage)
+5. [Authors and Acknowledgements](#Authors-and-Acknowledgements)
+6. [License](#License)
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
-
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
-
-```
-cd existing_repo
-git remote add origin https://gitlabsu.sorbonne-universite.fr/polytech_rob27/gr2_03.git
-git branch -M main
-git push -uf origin main
-```
-
-## Integrate with your tools
-
-- [ ] [Set up project integrations](https://gitlabsu.sorbonne-universite.fr/polytech_rob27/gr2_03/-/settings/integrations)
-
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
 
 ## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+L’objectif est d'implémenter un programme pilotant une machine vivante, inspirée du style d’animation de Pixar. Pour cela, on dispose d’une caméra Pan-Tilt alimentée par 2 servomoteurs, que l'on peut contrôler grâce à une carte Arduino UNO. 
+ 
+L'idée est donc que notre système réagisse à des interactions visuelles de manière dynamique, donnant alors l'impression que la machine est "vivante".
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+Le projet est divisé en deux parties :
 
+* **Figure imposée** : La caméra détecte une couleur qu'elle doit suivre en temps réel, ici rouge, vert ou bleu à l’aide d’OpenCV notamment.
+
+* **Figure libre** : Un Robot Police qui recherche un criminel à partir de deux critères définis dans l’interface : la couleur de son tee-shirt et s'il porte un masque. L’utilisateur sélectionne les paramètres qu'il souhaite, qui sont alors enregistrés dans un fichier, puis le programme lance un système de reconnaissance en se basant sur ces paramètres.
+
+
+## Prerequisite
+
+### Matériel :
+
+* Carte Arduino UNO
+* Webcam montée
+* 2 servomoteurs 
+
+### Logiciels à installer
+
+Avant de compiler ou d'exécuter le programme, installez : 
+
+* OpenCV pour le traitement d'image : Dans le terminal, tapez la commande :
+(sur Mac avec Homebrew)
+
+```bash
+brew install opencv
+``` 
+
+* GTK : permet de créer l'interface graphique (nécessaire d'être sous Linux). Dans le terminal :
+
+```bash
+sudo apt install libgtk-3-dev
+``` 
+
+* g++ : permet de compiler en C++, tapez dans le terminal les commandes : 
+
+```bash
+sudo apt update
+sudo apt install g++
+```
+On pourra vérifier la version avec :
+
+```bash
+g++ --version
+```
+
+* Arduino IDE : afin de téléverser le code sur la carte Arduino UNO, installez via le lien : 
+    
+    https://downloads.arduino.cc/arduino-ide/arduino-ide_2.3.6_Windows_64bit.exe
+
+Note : Dans notre projet, le port série utilisé par défaut dans le code (car configuration Mac) est :
+
+```bash
+/dev/cu.usbmodem1101
+```
+Dans le cas d'une exécution sur Linux ou Windows, le nom du port série sera différent. Il est donc nécessaire de vérifier le port série auquel l'Arduino est connecté et d'adapter ce chemin dans le code source avant d’exécuter le programme, sinon la communication avec l’Arduino ne pourra pas s’établir correctement.
+
+Il convient également de préciser que lors de l'exécution du code Arduino, il est nécessaire de fermer l'IDE Arduino sinon, le programme ne fonctionnera pas.
 ## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+
+Pour compiler les différents programmes, on s'assurera d'abord d'être dans le dossier où se trouvent les fichiers sources. On pourra alors taper dans le terminal les commandes suivantes : 
+
+#### Compilation du suivi de couleur
+```bash
+g++ camera_red_detect.cpp -o camera_red_detect `pkg-config --cflags --libs opencv4`
+```
+
+#### Compilation de l'interface graphique
+```bash
+g++ robot_police_cam_mac.cpp -o robot_police_cam_mac `pkg-config --cflags --libs opencv4`
+```
+#### Compilation du Robot Police
+```bash
+g++ interface.cpp -o interface `pkg-config --cflags --libs gtk+-3.0`
+```
 
 ## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+Les fichiers HaarCascade en .xml sont nécessaires pour exécuter les programmes utilisant la détection d’images.
+Ainsi, avant de lancer le programme, placez dans le même dossier que l'exécutable les fichiers suivants :
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+* haarcascade_frontalface_default.xml
+* haarcascade_mcs_mouth.xml
+* haarcascade_eye_tree_eyeglasses.xml
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+https://github.com/opencv/opencv/tree/3.4/data/haarcascades
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+Lorsque le programme est compilé, il peut être exécuté avec la commande suivante :
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+#### Interface graphique
 
+```bash
+./interface
+```
+
+On pourra alors :
+
+* Choisir un mode : Suivi Couleur ou Robot Police
+    * Dans le premier cas, on sélectionne alors la couleur désirée entre rouge, bleu et vert puis le mode Suivi de Couleur crée un fichier `couleur.txt` avec la couleur choisie et lance `camera_red_detect`. 
+    * Dans le deuxième cas, on sélectionne la couleur du suspect puis s'il porte un masque ou non. Le mode Robot Police crée alors un fichier `config.txt` avec les paramètres choisis, puis lance `robot_police_cam_mac`.
+
+* Cliquer sur "Lancer" pour démarrer le programme correspondant.
+
+
+
+## Authors and Acknowledgements
+
+- Mardikian Gaëlle - Projet imposé / Projet libre
+- Saandi Diyana - Interface graphique / Projet libre
+
+Ce projet a été réalisé sous la supervision de Ludovic Saint-Bauzel et Ousmane Ndiaye - ROB3 -  Polytech Sorbonne.
 ## License
-For open source projects, say how it is licensed.
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Ce projet a été réalisé dans le cadre du module Projet en langage C en ROB3 à Polytech Sorbonne.
