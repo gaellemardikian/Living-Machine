@@ -6,12 +6,12 @@ Notre nom fait référence à notre projet libre. Notre système simule le compo
 
 ## Sommaire 
 
-1. [Description](#Description)
-2. [Prerequisite](#Prerequisite)
-3. [Installation](#Installation)
-4. [Usage](#Usage)
-5. [Authors and Acknowledgements](#Authors-and-Acknowledgements)
-6. [License](#License)
+1. [Description](#description)
+2. [Prerequisite](#prerequisite)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [Authors and Acknowledgements](#authors-and-acknowledgements)
+6. [License](#license)
 
 
 ## Description
