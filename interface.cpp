@@ -47,7 +47,7 @@ void on_lancer_button(GtkButton *button, gpointer user_data) //Fonction callback
     {
         gchar *couleur;
         couleur = gtk_combo_box_text_get_active_text(GTK_COMBO_BOX_TEXT(menu_couleur)); //on prend la couleur sélectionné
-        g_print("Couleur = %s\n", couleur);
+        g_print("couleur = %s\n", couleur);
 
         if (couleur != NULL)
         {
