@@ -45,10 +45,10 @@ wsl
 puis placez-vous dans le bon dossier grâce à la commande :
 
 ```bash
-cd/mondossier
+cd /mnt/cheminversmondossier
 ``` 
 
-Une fois cette étape fini, passons aux installations : 
+Une fois cette étape finie, passons aux installations : 
 
 * OpenCV pour le traitement d'image : Dans le terminal, tapez la commande :
 (sur Mac avec Homebrew)
