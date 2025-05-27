@@ -37,7 +37,18 @@ Le projet est divisé en deux parties :
 
 ### Logiciels à installer :
 
-Avant de compiler ou d'exécuter le programme, installez : 
+Avant de compiler ou d'exécuter le programme, tapez dans le terminal (si Windows) :
+
+```bash
+wsl
+``` 
+puis placez-vous dans le bon dossier grâce à la commande :
+
+```bash
+cd/mondossier
+``` 
+
+Une fois cette étape fini, passons aux installations : 
 
 * OpenCV pour le traitement d'image : Dans le terminal, tapez la commande :
 (sur Mac avec Homebrew)
