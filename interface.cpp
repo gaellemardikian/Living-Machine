@@ -25,7 +25,7 @@ void chgmt_mode(GtkComboBox *widget, gpointer data) //callback déclenché quand
         
     mode = choix; // on met la valeur chosie dans mode
 
-    g_print("Mode sélectionné = %s\n", choix);
+    g_print("Mode sélectionné = %s\n", choix);//affiche directement dans le terminal au lieu d'ouvrir les fichiers 
     g_free(choix); 
 
     if (mode == "Suivi Couleur") //Si suivi de couleur est choisie
