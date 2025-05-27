@@ -1,0 +1,2 @@
+teeshirt : blanc
+masque : non
