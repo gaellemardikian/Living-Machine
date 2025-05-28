@@ -44,7 +44,7 @@ bool maj_hist(const string &couleur, const string &masque)
         return 0;
     }
 }
-
+/*
 bool history_remplie()
 { // verifie si les 15 fps ont ete remplie
     if (moy_couleurs.size() == l_max_deque && moy_masques.size() == l_max_deque)
@@ -55,7 +55,7 @@ bool history_remplie()
     {
         return 0;
     }
-}
+} */
 string couleur_f()
 {
     map<string, int> freq;
