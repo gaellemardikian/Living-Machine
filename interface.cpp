@@ -74,7 +74,7 @@ void on_lancer_button(GtkButton *button, gpointer user_data) //Fonction callback
         
         if (teeshirt != NULL && masque != NULL)
         {
-            //On crée le fichier config.txt qui contient les paramètres qui permettent de détécter l'individu recherché
+            //On crée le fichier config.txt qui contient les paramètres qui permettent de détecter l'individu recherché
             FILE *file;
             file = fopen("config.txt", "w");
             if (file != NULL)
